@@ -10,5 +10,6 @@ angular.module('myApp.view2', ['ngRoute'])
 }])
 
 .controller('View2Ctrl', [function() {
-
+	var db = firebase.firestore();
+	console.log(db);
 }]);
