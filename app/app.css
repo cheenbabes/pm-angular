@@ -67,6 +67,8 @@ header video {
   transform: translateX(-50%) translateY(-50%);
 }
 
+#mapid { height: 600px; }
+
 /* header .container {
   position: relative;
   z-index: 2;

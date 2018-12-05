@@ -53,6 +53,18 @@ angular.module('myApp.home', [])
 			var now = Date.now();
 
 			return Math.round((end - now) / (1000 * 60 * 60 * 24));
-
 		}
+
+		mapboxgl.accessToken= 'pk.eyJ1IjoiY2hlZW5iYWJlcyIsImEiOiJjaXNtN2Voc2EwMDl5MnBteHlwYTgyaHNhIn0.eeTrkQTg3NSV4c6ciN-3Vw';
+		var map = new mapboxgl.Map({
+			container: 'mapid',
+			style: 'mapbox://styles/cheenbabes/cjpbrhwde25lt2so870qhe7o1',
+			center: [-74.50, 40],
+			zoom: 9
+		  });
+
+
+
+
+
 	}]);
