@@ -37,6 +37,11 @@ body{
   font-size: 40px;
 }
 
+.section-wrap{
+  padding-top: 15px;
+  padding-bottom: 40px;
+}
+
 header {
   position: relative;
   background-color: black;
