@@ -18,6 +18,11 @@
 			});
 		});
 
+		var giversRef = db.collection('givers');
+		var usersRef = db.collection('users');
+		$scope.givers = [];
+		$scope.users = [];
+
 
 		// Wrap the HTML5 location inside a promise so its easier to work with
 		var getCurrentPosition = function () {
@@ -33,7 +38,7 @@
 		}
 
 
-				// use this to cluster in the future
+		// use this to cluster in the future
 		// https://www.mapbox.com/mapbox-gl-js/example/cluster/
 		var loadMap = function () {
 			mapboxgl.accessToken = 'pk.eyJ1IjoiY2hlZW5iYWJlcyIsImEiOiJjaXNtN2Voc2EwMDl5MnBteHlwYTgyaHNhIn0.eeTrkQTg3NSV4c6ciN-3Vw';
@@ -51,26 +56,69 @@
 			});
 		}
 
+
+		$scope.submitGiver = function () {
+			var toCommit = {
+				name: $scope.giverName,
+				email: $scope.giverEmail,
+				country: $scope.giverCountry
+			};
+			if ($scope.longitude && $scope.latitude) {
+				toCommit.longitude = $scope.longitude;
+				toCommit.latitude = $scope.latitude;
+				console.log(toCommit);
+			}
+			db.collection('givers').doc(toCommit.email).set(toCommit);
+		}
+
+		// get givers and force apply scope
+		giversRef.onSnapshot(function (querySnapshot) {
+			$scope.givers = [];
+			querySnapshot.forEach(function (doc) {
+				$scope.$apply(function () {
+					$scope.givers.push(doc.data());
+				});
+			});
+		});
+
+
+		// get users (temples) and force apply scope
+		usersRef.onSnapshot(function (querySnapshot) {
+			$scope.users = [];
+			querySnapshot.forEach(function (doc) {
+				$scope.$apply(function () {
+					$scope.users.push(doc.data());
+				});
+			});
+		});
+
+		$scope.daysLeft = function () {
+			var end = new Date('January 1, 2019');
+			var now = Date.now();
+
+			return Math.round((end - now) / (1000 * 60 * 60 * 24));
+		}
+
 		/* ------------------------------ */
 		/* GOOGLE MAP
 		/* ------------------------------ */
 
-		$scope.mapInitialization = function () {
-			$scope.myLatlng = new google.maps.LatLng(33.96290, -118.43589),
-				$scope.mapOptions = {
-					zoom: 14,
-					scrollwheel: false,
-					center: $scope.myLatlng
-				},
-				$scope.map = new google.maps.Map(document.getElementById('map'), $scope.mapOptions),
-				$scope.marker = new google.maps.Marker({
-					position: $scope.myLatlng,
-					map: $scope.map,
-					icon: "images/map.png"
-				});
-		}
+		// $scope.mapInitialization = function () {
+		// 	$scope.myLatlng = new google.maps.LatLng(33.96290, -118.43589),
+		// 		$scope.mapOptions = {
+		// 			zoom: 14,
+		// 			scrollwheel: false,
+		// 			center: $scope.myLatlng
+		// 		},
+		// 		$scope.map = new google.maps.Map(document.getElementById('map'), $scope.mapOptions),
+		// 		$scope.marker = new google.maps.Marker({
+		// 			position: $scope.myLatlng,
+		// 			map: $scope.map,
+		// 			icon: "images/map.png"
+		// 		});
+		// }
 
-		$scope.mapInitialization();
+		// $scope.mapInitialization();
 
 		/* ------------------------------ */
 		/* SCROLL BUTTON
@@ -150,6 +198,8 @@
 					$scope.pageAnimate('subscribe');
 				} else if ($(e.target).hasClass('container_button_message')) {
 					$scope.pageAnimate('contact');
+				}else if ($(e.target).hasClass('link_beagiver')) {
+					$scope.pageAnimate('be_a_giver');
 				}
 			}
 		}
@@ -168,20 +218,20 @@
 		/* ANIMATED COUNTER
 		/* ------------------------------ */
 
-		$scope.counterInit = function () {
-			$('.statistic').on('inview.uk.scrollspy', function () {
-				$scope.numAnim1 = new CountUp('statistic_counter_1', 0, 100, 0, 3.5);
-				$scope.numAnim2 = new CountUp('statistic_counter_2', 0, 150, 0, 3.5);
-				$scope.numAnim3 = new CountUp('statistic_counter_3', 0, 500, 0, 3.5);
-				$scope.numAnim4 = new CountUp('statistic_counter_4', 0, 750, 0, 3.5);
-				$scope.numAnim1.start();
-				$scope.numAnim2.start();
-				$scope.numAnim3.start();
-				$scope.numAnim4.start();
-			});
-		}
+		// $scope.counterInit = function () {
+		// 	$('.statistic').on('inview.uk.scrollspy', function () {
+		// 		$scope.numAnim1 = new CountUp('statistic_counter_1', 0, 100, 0, 3.5);
+		// 		$scope.numAnim2 = new CountUp('statistic_counter_2', 0, 150, 0, 3.5);
+		// 		$scope.numAnim3 = new CountUp('statistic_counter_3', 0, 500, 0, 3.5);
+		// 		$scope.numAnim4 = new CountUp('statistic_counter_4', 0, 750, 0, 3.5);
+		// 		$scope.numAnim1.start();
+		// 		$scope.numAnim2.start();
+		// 		$scope.numAnim3.start();
+		// 		$scope.numAnim4.start();
+		// 	});
+		// }
 
-		$scope.counterInit();
+		// $scope.counterInit();
 
 		/* ------------------------------ */
 		/* SHOW MODAL SUBSCRIBE WINDOW
@@ -217,13 +267,13 @@
 		/* REMOVE MOBILE VIDEO
 		/* ------------------------------ */
 
-		$scope.removeMobileVideo = function () {
-			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				$('.video_wrapper').remove();
-			}
-		}
+		// $scope.removeMobileVideo = function () {
+		// 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		// 		$('.video_wrapper').remove();
+		// 	}
+		// }
 
-		$scope.removeMobileVideo();
+		// $scope.removeMobileVideo();
 
 		/* ------------------------------ */
 		/* TOUCH EVENT HANDLERS

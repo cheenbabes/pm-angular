@@ -34,7 +34,7 @@
 *******/
 
 /******* Document *******/
-#mapid { height: 600px; }
+
 
 body {
     background: #fff;
@@ -55,10 +55,12 @@ p {
 
 .sepia_overlay,
 .light_overlay,
+.stat_overlay,
 .grey_overlay,
 .dark_overlay {
 	position: relative;
 }
+.stat_overlay,
 .sepia_overlay:before,
 .light_overlay:before,
 .grey_overlay:before,
@@ -70,6 +72,7 @@ p {
 	top: 0;
 	bottom: 0;
 }
+.container.stat_overlay:before
 .container.sepia_overlay:before,
 .container.light_overlay:before,
 .container.grey_overlay:before,
@@ -84,6 +87,9 @@ p {
 }
 .grey_overlay:before {
 	background: rgba(0,0,0,0.3);
+}
+.stat_overlay:before {
+	background: rgba(101, 83, 83, 0.3);
 }
 .dark_overlay:before {
 	background: rgba(0,0,0,0.7);
@@ -267,7 +273,6 @@ p {
 .uk-navbar-nav > li > a {
 	padding: 0 14px;
 	color: #fff;
-	font-size: 12px;
 	font-family: 'robotoregular', sans-serif;
 	letter-spacing: 0.65px;
 	text-shadow: 1px 1px 20px rgba(0,0,0,0.5);
@@ -713,27 +718,29 @@ p {
 /******* Statistic section *******/
 
 .statistic {
-    padding: 150px 0 120px;
+    padding: 90px 0 90px;
 	color: #000;
-	background: url('http://placehold.it/1920x1080') no-repeat center center;
+	/* background: url('http://placehold.it/1920x1080') no-repeat center center; */
 	background-size: cover;
 	background-attachment: fixed;
 	border: 0;
 }
 .statistic_title {
 	text-shadow: 1px 1px #000;
+	color: gray !important;
 }
 .statistic_counter {
 	font-size: 85px;
 	font-family: "robotoregular", sans-serif;
-    text-shadow: 1px 1px #777;
+	text-shadow: 1px 1px #777;
+	color: grey !important;
 }
 .statistic_text {
     margin-top: 5px;
 	font-size: 20px;
 	font-family: "robotolight", sans-serif;
 	text-transform: capitalize;
-	text-shadow: 1px 1px #000;
+	color: black;
 }
 
 /******* Gallery section *******/
