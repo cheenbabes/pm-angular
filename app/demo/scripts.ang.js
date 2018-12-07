@@ -200,6 +200,10 @@
 					$scope.pageAnimate('contact');
 				}else if ($(e.target).hasClass('link_beagiver')) {
 					$scope.pageAnimate('be_a_giver');
+				}else if ($(e.target).hasClass('link_beagiver')) {
+					$scope.pageAnimate('be_a_giver');
+				}else if ($(e.target).hasClass('link_beagiver')) {
+					$scope.pageAnimate('be_a_giver');
 				}
 			}
 		}

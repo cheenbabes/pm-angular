@@ -18,7 +18,7 @@
 		<nav class="uk-navbar header-nav">
 			<div class="uk-container uk-container-center">
 				<a class="uk-navbar-brand logo_link">
-					<img class="uk-responsive-height logo" src="../assets/img/logo.png" alt="">
+					<img class="uk-responsive-height logo" src="../assets/img/logo.png" alt="" style="margin-top: 15px;">
 				</a>
 				<div class="uk-navbar-flip uk-visible-large">
 					<ul class="uk-navbar-nav header-nav-list">
@@ -26,28 +26,16 @@
 							<a data-ng-click="scrollNav($event)" class="link_beagiver header_nav_list_item_link" href="#">Be a Giver</a>
 						</li>
 						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_features header_nav_list_item_link" href="#">Features</a>
+							<a data-ng-click="scrollNav($event)" class="link_facts header_nav_list_item_link" href="#">Stats</a>
 						</li>
 						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_offer header_nav_list_item_link" href="#">Offer</a>
+								<a data-ng-click="scrollNav($event)" class="link_givermap header_nav_list_item_link" href="#">Map</a>
 						</li>
 						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_pricing header_nav_list_item_link" href="#">Pricing</a>
+							<a data-ng-click="scrollNav($event)" class="link_signup header_nav_list_item_link" href="#">Sign Up</a>
 						</li>
 						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_clients header_nav_list_item_link" href="#">Clients</a>
-						</li>
-						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_facts header_nav_list_item_link" href="#">Statistics</a>
-						</li>
-						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_projects header_nav_list_item_link" href="#">Projects</a>
-						</li>
-						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_team header_nav_list_item_link" href="#">Team</a>
-						</li>
-						<li class="header_nav_list_item">
-							<a data-ng-click="scrollNav($event)" class="link_customers header_nav_list_item_link" href="#">Customers</a>
+							<a data-ng-click="scrollNav($event)" class="link_signin header_nav_list_item_link" href="#">Sign In</a>
 						</li>
 					</ul>
 				</div>
@@ -106,7 +94,7 @@
 	</section>
 
 	<!-- Statistic -->
-	<section class="statistic section" id="statistic" style="background-color: lightpink">
+	<section class="statistic section" id="statistic" style="background-color:#fcbb93">
 		<div class="uk-container uk-container-center uk-text-contrast uk-position-relative uk-text-center" data-uk-scrollspy="{cls:'select uk-active'}">
 			<h3 class="uk-h3 uk-text-contrast animated section_title statistic_title">Marathon Statistics</h3>
 			<h4 class="uk-h4 uk-text-contrast uk-margin-large-bottom animated section_subtitle">Updated in real time</h4>
@@ -149,14 +137,25 @@
 		</div>
 	</section>
 
-	<section>
+	<section class="giver_map">
 		<div class="uk-container uk-container-center uk-text-center" data-uk-scrollspy="{cls:'uk-active'}">
 			<h3 class="uk-h3 uk-margin-bottom uk-margin-top animated section_title elements_title">Map of Givers</h3>
-			<h4 class="uk-h4 uk-margin-bottom animated section_subtitle">Explore the map global reach of #BeAGiver via the real time map of givers all around the world</h4>
+			<h4 class="uk-h4 uk-margin-bottom animated section_subtitle">Explore the map global reach of #BeAGiver via the real
+				time map of givers all around the world</h4>
 		</div>
 	</section>
 
 	<div id="mapid"></div>
+
+
+	<section class="social">
+		<div class="uk-container uk-container-center uk-text-center" data-uk-scrollspy="{cls:'uk-active'}">
+			<h3 class="uk-h3 uk-margin-bottom uk-margin-top animated section_title elements_title">Social</h3>
+			<h4 class="uk-h4 uk-margin-bottom animated section_subtitle">Check out new posts about the Prabhupa Marathon
+				aggregated here</h4>
+		</div>
+		<div id="curator-feed" style={bottomPadding}>
+	</section>
 
 
 	<!-- Footer -->
@@ -204,28 +203,16 @@
 				<a data-ng-click="scrollNav($event)" class="link_beagiver" href="#">Be a Giver</a>
 			</li>
 			<li class="">
-				<a data-ng-click="scrollNav($event)" class="link_features" href="#">Features</a>
-			</li>
-			<li class="">
-				<a data-ng-click="scrollNav($event)" class="link_offer" href="#">Offer</a>
-			</li>
-			<li class="">
-				<a data-ng-click="scrollNav($event)" class="link_pricing" href="#">Pricing</a>
-			</li>
-			<li class="">
-				<a data-ng-click="scrollNav($event)" class="link_clients" href="#">Clients</a>
-			</li>
-			<li class="">
 				<a data-ng-click="scrollNav($event)" class="link_facts" href="#">Statistics</a>
 			</li>
 			<li class="">
-				<a data-ng-click="scrollNav($event)" class="link_projects" href="#">Projects</a>
+				<a data-ng-click="scrollNav($event)" class="link_givermap" href="#">Map</a>
 			</li>
 			<li class="">
-				<a data-ng-click="scrollNav($event)" class="link_team" href="#">Team</a>
+				<a data-ng-click="scrollNav($event)" class="link_signup" href="#">Sing Up</a>
 			</li>
 			<li class="">
-				<a data-ng-click="scrollNav($event)" class="link_customers" href="#">Customers</a>
+				<a data-ng-click="scrollNav($event)" class="link_signin" href="#">Sign In</a>
 			</li>
 		</ul>
 	</div>
