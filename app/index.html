@@ -45,56 +45,56 @@
 
     <header class="s-header" ng-controller="HeaderController">
 
-            <div class="header-logo">
-                <a class="site-logo" href="#/">
-                    <img src="assets/img/logo.png" alt="Homepage">
-                </a>
-            </div>
-    
-            <nav class="header-nav">
-    
-                <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-    
-                <div class="header-nav__content">
-                    <h3>Navigation</h3>
-    
-                    <img src="assets/img/logo.png">
-                    
-                    <ul class="header-nav__list">
-                        <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                        <li><a class="smoothscroll"  href="#beagiver" title="about">Be a Giver</a></li>
-                        <li><a class="smoothscroll"  href="#services" title="services">Giver Map</a></li>
-                        <li><a href="#/login" title="Login" ng-hide="user">Login</a></li>
-                        <li><a class="smoothscroll"  href="#clients" title="clients" ng-hide="user">Sign Up</a></li>
-                        <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
-                        <li><a href="#" title="Log Out" ng-click="signOut()" ng-show="user">Logout</a></li>    
-                    </ul>
-            
-                    <ul class="header-nav__social">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-youtube"></i></a>
-                        </li>
-                    </ul>
-                </div> <!-- end header-nav__content -->
-    
-            </nav>  <!-- end header-nav -->
-    
-            <a class="header-menu-toggle" href="#0">
-                <span class="header-menu-text">Menu</span>
-                <span class="header-menu-icon"></span>
+        <div class="header-logo">
+            <a class="site-logo" href="#/">
+                <img src="assets/img/logo.png" alt="Homepage">
             </a>
+        </div>
 
-    
-        </header> <!-- end s-header -->
+        <nav class="header-nav">
+
+            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+
+            <div class="header-nav__content">
+                <h3>Navigation</h3>
+
+                <img src="assets/img/logo.png">
+
+                <ul class="header-nav__list">
+                    <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
+                    <li><a class="smoothscroll" href="#beagiver" title="about">Be a Giver</a></li>
+                    <li><a class="smoothscroll" href="#services" title="services">Giver Map</a></li>
+                    <li><a class="smoothscroll" href="#social" title="services">Social</a></li>
+                    <li><a href="#/login" title="Login" ng-hide="user">Login</a></li>
+                    <li><a class="smoothscroll" href="#contact" title="contact" ng-hide="user">Sign Up</a></li>
+                    <li><a href="#" title="Log Out" ng-click="signOut()" ng-show="user">Logout</a></li>
+                </ul>
+
+                <ul class="header-nav__social">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div> <!-- end header-nav__content -->
+
+        </nav> <!-- end header-nav -->
+
+        <a class="header-menu-toggle" href="#0">
+            <span class="header-menu-text">Menu</span>
+            <span class="header-menu-icon"></span>
+        </a>
+
+
+    </header> <!-- end s-header -->
 
     <div ng-view></div>
-   
+
 
 
     <!-- preloader
@@ -121,32 +121,45 @@
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAkm7TiZ3UZeybf6nFYIzRrkVcpaChVM8Y",
-        authDomain: "react-app-3bb2d.firebaseapp.com",
-        databaseURL: "https://react-app-3bb2d.firebaseio.com",
-        projectId: "react-app-3bb2d",
-        storageBucket: "react-app-3bb2d.appspot.com",
-        messagingSenderId: "1019607135675"
-      };
-      firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAkm7TiZ3UZeybf6nFYIzRrkVcpaChVM8Y",
+            authDomain: "react-app-3bb2d.firebaseapp.com",
+            databaseURL: "https://react-app-3bb2d.firebaseio.com",
+            projectId: "react-app-3bb2d",
+            storageBucket: "react-app-3bb2d.appspot.com",
+            messagingSenderId: "1019607135675"
+        };
+        firebase.initializeApp(config);
     </script>
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-route.js"></script>
-  
+
     <script src="app.js"></script>
     <script src="home/home.js"></script>
     <script src="login/login.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
-  
-  
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>  
+        crossorigin="anonymous"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+
+    <script type="text/javascript">
+        /* curator-feed */
+        (function () {
+            var i, e, d = document,
+                s = "script";
+            i = d.createElement("script");
+            i.async = 1;
+            i.src = "https://cdn.curator.io/published/9368039f-d533-4c2c-b3e7-c32021b31f88.js";
+            e = d.getElementsByTagName(s)[0];
+            e.parentNode.insertBefore(i, e);
+        })();
+    </script>
 
 
 
