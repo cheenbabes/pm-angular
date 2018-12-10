@@ -772,7 +772,7 @@ textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: #fcbb93;
+    -webkit-text-fill-color: #5d5d5d;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -2198,7 +2198,7 @@ html.no-csstransitions .home-content__main {
  *
  * ------------------------------------------------------------------- */
 .s-about {
-    padding-top: 16.2rem;
+    padding-top: 6.2rem;
     padding-bottom: 9rem;
     background-color: #fcbb93;
     color: #010507;
@@ -2210,6 +2210,21 @@ html.no-csstransitions .home-content__main {
 }
 
 .about-desc {
+    font-size: 2.4rem;
+    line-height: 1.75;
+    text-align: center;
+    max-width: 1024px;
+}
+
+.beagiver {
+    padding-top: 6.2rem;
+    padding-bottom: 9rem;
+    background-color: #fcbb93;
+    color: #010507;
+    position: relative;
+}
+
+.beagiver-desc {
     font-size: 2.4rem;
     line-height: 1.75;
     text-align: center;

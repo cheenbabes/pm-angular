@@ -19,9 +19,6 @@
         <li>
             <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
         </li>
-        <!-- <li>
-                <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-            </li> -->
         <li>
             <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
         </li>
@@ -36,8 +33,8 @@
 
 <!-- about
         ================================================== -->
-<section>
-    <div class="row section-header has-bottom-sep" data-aos="fade-up">
+<section id="beagiver" class="beagiver">
+    <div class="row section-header has-bottom-sep" >
         <div class="col-full">
             <h3 class="subhead subhead--dark">Hare Krishna</h3>
             <h1 class="display-1 display-1--light">#BeAGiver</h1>
@@ -46,29 +43,32 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-full">
+                <p class="beagiver-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt. </p>
+            </div>
+        <div class="row">
+            <div class="col-4">
                 <img src="../assets/img/giver_logo.png" style="width:100%; height: 100%">
             </div>
-            <div class="col-sm">
-                <h3 class="text-center">Sign up today to be a giver!</h3>
+            <div class="col-8">
                 <form>
                     <div class="form-group">
                         <label for="name">
                             Name
                         </label>
-                        <input type="text" ng-model="giverName" class="form-control">
+                        <input type="text" ng-model="giverName" class="form-control" style="width:390px;">
                     </div>
                     <div class="form-group">
                         <label for="name">
                             Email
                         </label>
-                        <input type="email" ng-model="giverEmail" class="form-control">
+                        <input type="email" ng-model="giverEmail" class="form-control"  style="width:100%">
                     </div>
                     <div class="form-group">
                         <label for="name">
                             Country
                         </label>
-                        <input type="text" ng-model="giverCountry" class="form-control">
+                        <input type="text" ng-model="giverCountry" class="form-control"  style="width:100%">
                     </div>
                     <button type="button" class="btn btn-primary btn-block" ng-click="submitGiver()">Submit</button>
                 </form>
