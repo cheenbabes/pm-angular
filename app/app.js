@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.home',
   'myApp.version',
+  'myApp.login'
 ]).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$locationProvider.hashPrefix('');
@@ -13,6 +14,10 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
   .when('/', {
     templateUrl: 'home/home.html',
     controller: 'HomeController'
+  })
+  .when('/login', {
+    templateUrl: '/login/login.html',
+    controller: 'LoginController'
   })
   .otherwise({redirectTo: '/'});
 }]);
