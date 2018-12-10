@@ -74,7 +74,7 @@ html, body {
 }
 
 body {
-    background: #111111;
+    background:#fcbb93;
     font-family: "lora-regular", serif;
     font-size: 1.7rem;
     font-style: normal;
@@ -2235,6 +2235,8 @@ html.no-csstransitions .home-content__main {
 }
 
 
+
+
 /* ------------------------------------------------------------------- 
  * ## about stats
  * ------------------------------------------------------------------- */
@@ -3659,3 +3661,21 @@ header {
     z-index: 1;
   }
 
+
+
+
+  
+.login {
+    padding-top: 6.2rem;
+    padding-bottom: 9rem;
+    background-color: #fcbb93;
+    color: #010507;
+    /* position: relative; */
+}
+
+.login-desc {
+    font-size: 2.4rem;
+    line-height: 1.75;
+    text-align: center;
+    max-width: 1024px;
+}

@@ -78,6 +78,20 @@ angular.module('myApp.home', [])
 		}
 
 
+		$scope.signOut = function(){
+			auth.signOut();
+		}
+
+
+		auth.onAuthStateChanged(function(user) {
+			if (user) {
+			 $scope.user = user;
+			} else {
+			  // No user is signed in.
+			}
+		  });
+
+
 		// use this to cluster in the future
 		// https://www.mapbox.com/mapbox-gl-js/example/cluster/
 		var loadMap = function () {
@@ -95,4 +109,21 @@ angular.module('myApp.home', [])
 				});
 			});
 		}
+	}])
+	
+	
+	.controller('HeaderController', ['$scope', function($scope){
+
+		$scope.signOut = function(){
+			auth.signOut();
+		}
+
+
+		auth.onAuthStateChanged(function(user) {
+			if (user) {
+			 $scope.user = user;
+			} else {
+			  // No user is signed in.
+			}
+		  });
 	}]);

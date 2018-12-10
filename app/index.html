@@ -42,54 +42,56 @@
 
     <!-- header
     ================================================== -->
-    <header class="s-header">
 
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="assets/img/logo.png" alt="Homepage">
+    <header class="s-header" ng-controller="HeaderController">
+
+            <div class="header-logo">
+                <a class="site-logo" href="#/">
+                    <img src="assets/img/logo.png" alt="Homepage">
+                </a>
+            </div>
+    
+            <nav class="header-nav">
+    
+                <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+    
+                <div class="header-nav__content">
+                    <h3>Navigation</h3>
+    
+                    <img src="assets/img/logo.png">
+                    
+                    <ul class="header-nav__list">
+                        <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
+                        <li><a class="smoothscroll"  href="#beagiver" title="about">Be a Giver</a></li>
+                        <li><a class="smoothscroll"  href="#services" title="services">Giver Map</a></li>
+                        <li><a href="#/login" title="Login" ng-hide="user">Login</a></li>
+                        <li><a class="smoothscroll"  href="#clients" title="clients" ng-hide="user">Sign Up</a></li>
+                        <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+                        <li><a href="#" title="Log Out" ng-click="signOut()" ng-show="user">Logout</a></li>    
+                    </ul>
+            
+                    <ul class="header-nav__social">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div> <!-- end header-nav__content -->
+    
+            </nav>  <!-- end header-nav -->
+    
+            <a class="header-menu-toggle" href="#0">
+                <span class="header-menu-text">Menu</span>
+                <span class="header-menu-icon"></span>
             </a>
-        </div>
 
-        <nav class="header-nav">
-
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-
-            <div class="header-nav__content">
-                <h3>Navigation</h3>
-
-                <img src="assets/img/logo.png">
-                
-                <ul class="header-nav__list">
-                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#beagiver" title="about">Be a Giver</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">Giver Map</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
-                    <li><a class="smoothscroll"  href="#clients" title="clients">Clients</a></li>
-                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
-                </ul>
-        
-                <ul class="header-nav__social">
-                    <li>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-youtube"></i></a>
-                    </li>
-                </ul>
-
-            </div> <!-- end header-nav__content -->
-
-        </nav>  <!-- end header-nav -->
-
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-text">Menu</span>
-            <span class="header-menu-icon"></span>
-        </a>
-
-    </header> <!-- end s-header -->
+    
+        </header> <!-- end s-header -->
 
     <div ng-view></div>
    
