@@ -2,7 +2,7 @@
 
 angular.module('myApp.home', [])
 
-	.controller('HomeController', ['$scope', function ($scope) {
+	.controller('HomeController', ['$scope', 'toaster', function ($scope, toaster) {
 		var giversRef = db.collection('givers');
 		var usersRef = db.collection('users');
 		$scope.givers = [];
@@ -68,6 +68,8 @@ angular.module('myApp.home', [])
 				console.log(toCommit);
 			}
 			db.collection('givers').doc(toCommit.email).set(toCommit);
+			toaster.pop('success', 'Thank you!', 'Your successfully submitted your information and became a giver!');
+
 		}
 
 		$scope.daysLeft = function () {
@@ -112,10 +114,11 @@ angular.module('myApp.home', [])
 	}])
 	
 	
-	.controller('HeaderController', ['$scope', function($scope){
+	.controller('HeaderController', ['$scope', 'toaster', function($scope, toaster){
 
 		$scope.signOut = function(){
 			auth.signOut();
+			toaster.pop('info', 'Log out successful', '');
 		}
 
 
