@@ -5,8 +5,10 @@ angular.module('myApp.home', [])
 	.controller('HomeController', ['$scope', 'toaster', function ($scope, toaster) {
 		var giversRef = db.collection('givers');
 		var usersRef = db.collection('users');
+		var bookScoresRef = db.collection('book-scores');
 		$scope.givers = [];
 		$scope.users = [];
+		$scope.bookCount = 0;
 
 		// Grab the location first thing so we can center the map correctly 
 		// Also we have the location for the giver submission
@@ -52,6 +54,14 @@ angular.module('myApp.home', [])
 			querySnapshot.forEach(function (doc) {
 				$scope.$apply(function () {
 					$scope.users.push(doc.data());
+				});
+			});
+		});
+
+		bookScoresRef.get().then(function(querySnapshot){
+			querySnapshot.forEach(function (doc) {
+				$scope.$apply(function() {
+					$scope.bookCount += doc.data().bookCount;
 				});
 			});
 		});
@@ -102,12 +112,14 @@ angular.module('myApp.home', [])
 				container: 'mapid',
 				style: 'mapbox://styles/cheenbabes/cjpbrhwde25lt2so870qhe7o1',
 				center: [$scope.longitude, $scope.latitude],
-				zoom: 7
+				zoom: 3
 			});
 
 			return db.collection('givers').get().then(function (querySnapshot) {
 				querySnapshot.forEach(function (doc) {
-					var marker = new mapboxgl.Marker().setLngLat([doc.data().longitude, doc.data().latitude]).addTo(map);
+					if(doc.data().longitude && doc.data().latitude){
+						var marker = new mapboxgl.Marker().setLngLat([doc.data().longitude, doc.data().latitude]).addTo(map);
+					}
 				});
 			});
 		}
