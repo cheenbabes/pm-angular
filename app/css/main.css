@@ -2201,7 +2201,7 @@ html.no-csstransitions .home-content__main {
  *
  * ------------------------------------------------------------------- */
 .s-about {
-    padding-top: 6.2rem;
+    padding-top: 0rem;
     padding-bottom: 9rem;
     background-color: #fcbb93;
     color: #010507;
@@ -2221,7 +2221,7 @@ html.no-csstransitions .home-content__main {
 
 .beagiver {
     padding-top: 6.2rem;
-    padding-bottom: 9rem;
+    padding-bottom: 0rem;
     background-color: #fcbb93;
     color: #010507;
     position: relative;
@@ -2277,7 +2277,7 @@ html.no-csstransitions .home-content__main {
     position: relative;
 }
 
-.about__line {
+/* .about__line {
     display: block;
     width: 2px;
     height: 10.2rem;
@@ -2285,7 +2285,7 @@ html.no-csstransitions .home-content__main {
     position: absolute;
     right: 7.2rem;
     top: 0;
-}
+} */
 
 
 /* ------------------------------------------------------------------- 
