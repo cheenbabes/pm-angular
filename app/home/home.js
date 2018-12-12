@@ -2,7 +2,7 @@
 
 angular.module('myApp.home', [])
 
-	.controller('HomeController', ['$scope', 'toaster', function ($scope, toaster) {
+	.controller('HomeController', ['$scope', '$http', 'toaster', function ($scope, $http, toaster) {
 		var giversRef = db.collection('givers');
 		var usersRef = db.collection('users');
 		var bookScoresRef = db.collection('book-scores');
@@ -75,11 +75,19 @@ angular.module('myApp.home', [])
 			if ($scope.longitude && $scope.latitude) {
 				toCommit.longitude = $scope.longitude;
 				toCommit.latitude = $scope.latitude;
-				console.log(toCommit);
 			}
-			db.collection('givers').doc(toCommit.email).set(toCommit);
-			toaster.pop('success', 'Thank you!', 'Your successfully submitted your information and became a giver!');
-
+			return db.collection('givers').doc(toCommit.email).set(toCommit).then(function(){
+				console.log(toCommit);
+				return $http({
+					method: 'POST',
+					url: '/mailchimp',
+					data: toCommit
+				}).then(function(){
+					toaster.pop('success', 'Thank you!', 'Your successfully submitted your information and became a giver!');
+				}).catch(function(err){
+					console.log(err);
+				});
+			});
 		}
 
 		$scope.daysLeft = function () {
