@@ -186,6 +186,14 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
+    <!-- bypass good citizenship and just play the video on page load through DOM manipulation =/ -->
+    <script>
+        $(document).ready(function(){
+            var videoelement = $('#video1').get(0);
+            videoelement.play();
+        });
+    </script>
+
 </body>
 
 </html>
