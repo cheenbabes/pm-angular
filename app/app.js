@@ -8,7 +8,8 @@ angular.module('myApp', [
   'myApp.login',
   'toaster',
   'ngAnimate',
-  'myApp.book'
+  'myApp.book',
+  'myApp.signup',
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -22,6 +23,10 @@ angular.module('myApp', [
   .when('/login', {
     templateUrl: '/login/login.html',
     controller: 'LoginController'
+  })
+  .when('/signup', {
+    templateUrl: '/signup/signup.html',
+    controller: 'SignUpController'
   })
   .when('/book-form', {
     templateUrl: '/book/book.html',

@@ -1,0 +1,43 @@
+<section id="signup" class="login" style="padding-top: 300px;">
+    <div class="row section-header ">
+        <div class="col-full">
+            <h3 class="subhead subhead--dark">Sign Up</h3>
+        </div>
+        <toaster-container></toaster-container>
+
+        <div class="row">
+            <div class="col-full">
+                <form class="login-desc">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email" style="margin: 0px auto; width:400px;"
+                            ng-model="email">
+                    </div>
+                    <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Temple" style="margin: 0px auto; width:400px;"
+                                ng-model="temple">
+                        </div>
+                        <div class="form-group">
+                                <input type="text" class="form-control" placeholder="City" style="margin: 0px auto; width:400px;"
+                                    ng-model="city">
+                            </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" style="margin: 0px auto; width:400px;"
+                            ng-model="password">
+                    </div>
+                    <div class="form-group" style="padding-bottom: 25px;">
+                            <input type="password" class="form-control" placeholder="Confirm Password" style="margin: 0px auto; width:400px;"
+                                ng-model="password2">
+                        </div>
+
+                    <button class="btn btn-primary btn-block" ng-click="createUser();" type="submit">Submit</button>
+                </form>
+            </div>
+
+
+            <div class="alert alert-danger"></div>
+
+        </div>
+    </div> <!-- end section-header -->
+
+
+</section>

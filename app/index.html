@@ -155,6 +155,7 @@
     <script src="home/home.js"></script>
     <script src="login/login.js"></script>
     <script src="book/book.js"></script>
+    <script src="signup/signup.js"></script>
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
@@ -183,14 +184,25 @@
 
 
     <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
     <!-- bypass good citizenship and just play the video on page load through DOM manipulation =/ -->
     <script>
         $(document).ready(function(){
-            var videoelement = $('#video1').get(0);
-            videoelement.play();
+            setTimeout(function(){
+                var videoelement = $('#video1').get(0);
+                var playPromise = videoelement.play();
+                if(playPromise !== undefined){
+                    playPromise.then(function(_){
+                        console.log('started playing')
+                    }).catch(function(error){
+                        console.log(error)
+                    })
+                }
+                // videoelement.play();
+            }, 2000);
         });
     </script>
 
