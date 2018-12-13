@@ -1,1 +1,96 @@
-BOOK!
+<style>
+    input[type="date"]
+ {
+    display: block;
+    height: 6rem;
+    padding: 1.5rem 0;
+    border: 0;
+    outline: none;
+    color: #333333;
+    font-family: "montserrat-light", sans-serif;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    max-width: 100%;
+    background: transparent;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+</style>
+
+
+<section id="beagiver" class="login" style="padding-top: 300px;">
+    <div class="row section-header ">
+        <div class="col-full">
+            <h3 class="subhead subhead--dark">Book Score Submission</h3>
+        </div>
+        <toaster-container></toaster-container>
+
+        <div class="row">
+            <div class="col-full">
+                <form class="login-desc">
+                    <div class="form-group">
+                        <input type="date" class="form-control" placeholder="Date of Event" style="margin: 0px auto; width:400px;"
+                            ng-model="date">
+                    </div>
+                    <div class="form-group" style="padding-bottom: 25px;">
+                        <input type="number" class="form-control" placeholder="Number of Distributors" style="margin: 0px auto; width:400px;"
+                            ng-model="numberOfDists">
+                    </div>
+                    <div class="form-group" style="padding-bottom: 25px;">
+                        <select name="distributeOptions" id="distributeOptions" ng-model="distOption" class="form-control"
+                            style="margin: 0px auto; width:400px;">
+                            <option value="" selected disabled>Please Choose Distribution Type</option>
+                            <option ng-repeat="option in distributeOptions" value="{{option.value}}">{{option.label}}</option>
+                        </select>
+                    </div>
+
+                </form>
+
+
+                <!-- style="border: grey 1px solid; padding-bottom: 25px; margin-bottom: 25px;" -->
+                <!-- new book -->
+                <div ng-show="showSubmit" >
+                    <div ng-repeat="book in books" style="border: grey 1px solid; padding-bottom: 25px; margin-bottom: 25px;">
+                            <div class="form-group">
+                                    <select name="newTitleSelect" id="newTitleSelect" ng-model="book.title" class="form-control"
+                                        style="margin: 0px auto; width:400px;">
+                                        <option value="" selected disabled>Please Choose Book Title</option>
+                                        <option ng-repeat="option in bookTitles" value="{{option.value}}">{{option.label}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="newLanguageSelect" id="newLanguageSelect" ng-model="book.language" class="form-control"
+                                        style="margin: 0px auto; width:400px;">
+                                        <option value="" selected disabled>Please Choose Book Language</option>
+                                        <option ng-repeat="option in languageOptions" value="{{option.value}}">{{option.label}}</option>
+                                    </select>
+                                </div>
+            
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder="Number of Books" style="margin: 0px auto; width:400px;"
+                                        ng-model="book.numberOfBooks">
+                                </div>
+                                <button style="background-color: lightcoral;margin-top: 25px;" ng-click="removeBook(books, $index);">Remove</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- existing books -->
+            <!-- ng repeat -->
+
+                <button class="btn btn-primary btn-block" ng-click="addBook();">Add Book</button>
+                <button class="btn btn-primary btn-block" ng-click="submitScores()" ng-show="showSubmit">Submit</button>
+
+
+        </div>
+
+
+        <div class="alert alert-danger"></div>
+
+    </div>
+    </div> <!-- end section-header -->
+
+
+</section>

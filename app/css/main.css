@@ -614,6 +614,7 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
+input[type="date"]
 textarea,
 select {
     display: block;
@@ -850,6 +851,8 @@ input[type="button"].btn--primary:focus {
     background: #33a242;
     border-color: #33a242;
 }
+
+
 
 
 /* button modifiers
