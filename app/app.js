@@ -26,17 +26,17 @@ angular.module('myApp', [
   .when('/book-form', {
     templateUrl: '/book/book.html',
     controller: 'BookFormController',
-    // resolve: {
-    //   user: ['$http', '$q', function($http, $q){
-    //     var deferred = $q.defer();
-    //     if(firebase.auth().currentUser){
-    //       deferred.resolve(firebase.auth().currentUser);
-    //     } else {
-    //       deferred.reject('NOT_AUTHORIZED');
-    //     }
-    //     return deferred.promise;
-    //   }]
-    // }
+    resolve: {
+      user: ['$http', '$q', function($http, $q){
+        var deferred = $q.defer();
+        if(firebase.auth().currentUser){
+          deferred.resolve(firebase.auth().currentUser);
+        } else {
+          deferred.reject('NOT_AUTHORIZED');
+        }
+        return deferred.promise;
+      }]
+    }
   })
   .otherwise({redirectTo: '/'});
 }])
@@ -55,5 +55,5 @@ db.settings({
   timestampsInSnapshots: true
 });
 var auth = firebase.auth();
-auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
 

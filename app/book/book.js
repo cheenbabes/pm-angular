@@ -2,8 +2,9 @@
 
 angular.module('myApp.book', [])
 
-    .controller('BookFormController', ['$scope', function ($scope) {
+    .controller('BookFormController', ['$scope', 'user' , function ($scope, user) {
 
+        console.log(user);
         $scope.showSubmit = false;
 
         $scope.books = [];
@@ -19,6 +20,38 @@ angular.module('myApp.book', [])
 
         $scope.removeBook = function(array, index){
             array.splice(index, 1);
+        }
+
+        $scope.submitScores = function(){
+            var userRef =  db.collection('book-distributions').doc(user.uid);
+            var epochDate = $scope.date.getTime();
+            var finalNode = db.collection('book-distributions').doc(userRef.id).collection(epochDate.toString()).doc();
+        
+            return finalNode.set({
+                userId: user.uid,
+                epochDate: epochDate,
+                date: $scope.date,
+                distributionType: $scope.distOption,
+                numberOfDistributors: $scope.numberOfDists,
+                books: $scope.books
+            }).then(function(){
+                var bookCount = $scope.books.map(function(book){
+                    return parseInt(book.numberOfBooks);
+                  }).reduce((a, b) => {
+                    return a + b;
+                  }, 0);
+                return db.collection('book-scores').add({
+                    userId: user.uid,
+                    epochDate: epochDate,
+                    date: $scope.date,
+                    distributionType: $scope.distOption,
+                    numberOfDistributors: $scope.numberOfDists,
+                    books: $scope.books,
+                    bookCount: bookCount
+                });
+            }).catch(function(err){
+                console.log(err);
+            })
         }
 
 
