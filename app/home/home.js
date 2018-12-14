@@ -58,9 +58,9 @@ angular.module('myApp.home', [])
 			});
 		});
 
-		bookScoresRef.get().then(function(querySnapshot){
+		bookScoresRef.get().then(function (querySnapshot) {
 			querySnapshot.forEach(function (doc) {
-				$scope.$apply(function() {
+				$scope.$apply(function () {
 					$scope.bookCount += doc.data().bookCount;
 				});
 			});
@@ -76,15 +76,15 @@ angular.module('myApp.home', [])
 				toCommit.longitude = $scope.longitude;
 				toCommit.latitude = $scope.latitude;
 			}
-			return db.collection('givers').doc(toCommit.email).set(toCommit).then(function(){
+			return db.collection('givers').doc(toCommit.email).set(toCommit).then(function () {
 				console.log(toCommit);
 				return $http({
 					method: 'POST',
 					url: '/mailchimp',
 					data: toCommit
-				}).then(function(){
+				}).then(function () {
 					toaster.pop('success', 'Thank you!', 'Your successfully submitted your information and became a giver!');
-				}).catch(function(err){
+				}).catch(function (err) {
 					console.log(err);
 				});
 			});
@@ -98,18 +98,18 @@ angular.module('myApp.home', [])
 		}
 
 
-		$scope.signOut = function(){
+		$scope.signOut = function () {
 			auth.signOut();
 		}
 
 
-		auth.onAuthStateChanged(function(user) {
+		auth.onAuthStateChanged(function (user) {
 			if (user) {
-			 $scope.user = user;
+				$scope.user = user;
 			} else {
-			  // No user is signed in.
+				// No user is signed in.
 			}
-		  });
+		});
 
 
 		// use this to cluster in the future
@@ -125,28 +125,33 @@ angular.module('myApp.home', [])
 
 			return db.collection('givers').get().then(function (querySnapshot) {
 				querySnapshot.forEach(function (doc) {
-					if(doc.data().longitude && doc.data().latitude){
+					if (doc.data().longitude && doc.data().latitude) {
 						var marker = new mapboxgl.Marker().setLngLat([doc.data().longitude, doc.data().latitude]).addTo(map);
 					}
 				});
 			});
 		}
 	}])
-	
-	
-	.controller('HeaderController', ['$scope', 'toaster', function($scope, toaster){
 
-		$scope.signOut = function(){
-			auth.signOut();
-			toaster.pop('info', 'Log out successful', '');
+
+	.controller('HeaderController', ['$scope', 'toaster', function ($scope, toaster) {
+
+		$scope.signOut = function () {
+			return auth.signOut().then(function(){
+				toaster.pop('info', 'Log out successful', '');
+			}).then(function(){
+				//for whatever reason the auth state change doesnt pick up logout events???
+				$scope.user = auth.currentUser;
+				
+			});
 		}
 
 
-		auth.onAuthStateChanged(function(user) {
+		auth.onAuthStateChanged(function (user) {
 			if (user) {
-			 $scope.user = user;
+				$scope.user = user;
 			} else {
-			  // No user is signed in.
+				// No user is signed in.
 			}
-		  });
+		});
 	}]);

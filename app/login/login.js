@@ -2,7 +2,7 @@
 
 angular.module('myApp.login', [])
 
-	.controller('LoginController', ['$scope', '$location', 'toaster', '$timeout', function ($scope, $location, toaster) {
+	.controller('LoginController', ['$scope', '$location', 'toaster', '$timeout', function ($scope, $location, toaster, $timeout) {
         $scope.doLogin = function() {
             auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){
                 auth.signInWithEmailAndPassword($scope.username, $scope.password).then(function(user){
