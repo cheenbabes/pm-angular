@@ -123,6 +123,9 @@ angular.module('myApp.home', [])
 				zoom: 3
 			});
 
+			map.addControl(new mapboxgl.NavigationControl());
+
+
 			return db.collection('givers').get().then(function (querySnapshot) {
 				querySnapshot.forEach(function (doc) {
 					if (doc.data().longitude && doc.data().latitude) {
