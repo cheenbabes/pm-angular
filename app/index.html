@@ -189,21 +189,34 @@
     <script src="js/main.js"></script>
 
     <!-- bypass good citizenship and just play the video on page load through DOM manipulation =/ -->
+    <!-- this works well on firefox but blocked by chrome, we auotplay anyway because we have mute -->
     <script>
-        $(document).ready(function(){
-            setTimeout(function(){
+        $(document).ready(function () {
+            setTimeout(function () {
                 var videoelement = $('#video1').get(0);
                 var playPromise = videoelement.play();
-                if(playPromise !== undefined){
-                    playPromise.then(function(_){
+                if (playPromise !== undefined) {
+                    playPromise.then(function (_) {
                         console.log('started playing')
-                    }).catch(function(error){
+                    }).catch(function (error) {
                         console.log(error)
                     })
                 }
                 // videoelement.play();
             }, 2000);
         });
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128423389-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128423389-1');
     </script>
 
 </body>
