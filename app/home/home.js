@@ -94,7 +94,8 @@ angular.module('myApp.home', [])
 			var end = new Date('January 1, 2019');
 			var now = Date.now();
 
-			return Math.round((end - now) / (1000 * 60 * 60 * 24));
+			var toRet = Math.round((end - now) / (1000 * 60 * 60 * 24));
+			return toRet > 0 ? toRet : 0;
 		}
 
 

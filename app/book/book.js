@@ -2,7 +2,7 @@
 
 angular.module('myApp.book', [])
 
-    .controller('BookFormController', ['$scope', 'user' , function ($scope, user) {
+    .controller('BookFormController', ['$scope', 'user' , '$timeout', 'toaster', function ($scope, user, $timeout, toaster) {
 
         console.log(user);
         $scope.showSubmit = false;
@@ -23,6 +23,15 @@ angular.module('myApp.book', [])
         }
 
         $scope.submitScores = function(){
+            // make sure the books are well formed
+            for(var i =0; i < $scope.books.length; i++){
+              if(!$scope.books[i] || !$scope.books[i].language || $scope.books[i].numberOfBooks === ""){
+                $timeout(function(){
+                  toaster.pop('danger', 'Error!', "You must correct your book submission");
+                },0);
+                return;
+              }
+            }
             var userRef =  db.collection('book-distributions').doc(user.uid);
             var epochDate = $scope.date.getTime();
             var finalNode = db.collection('book-distributions').doc(userRef.id).collection(epochDate.toString()).doc();
